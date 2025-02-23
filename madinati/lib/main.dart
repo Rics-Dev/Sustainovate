@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:madinati/structure/login.dart';
-import 'package:madinati/structure/validation.dart';
+import 'package:madinati/structure/auth/signin_screen.dart';
+import 'package:madinati/structure/auth/signup_screen.dart';
+import 'package:madinati/structure/auth/validation.dart';
 
 void main() { 
   runApp(DevicePreview( 
     enabled: true, 
-    builder: (context) => const PhoneVerificationScreen(), 
+    builder: (context) => const SignUpScreen(),
   )); 
 }
 
@@ -38,25 +39,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-
-
-
-
-
-
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // Simulate splash screen delay
-  //   Future.delayed(const Duration(seconds: 2), () {
-  //     Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => const AuthScreen()),
-  //     );
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    // Simulate splash screen delay
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const AuthScreen()),
+      );
+    });
+  }
 
 
 
@@ -93,6 +86,10 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+
+
+
+
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
