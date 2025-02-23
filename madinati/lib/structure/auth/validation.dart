@@ -109,18 +109,35 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade900,
+                    padding: EdgeInsets.zero, // Remove default padding for gradient
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
+                    elevation: 0,
                   ),
                   onPressed: isChecked ? () {} : null,
-                  child: Text(
-                    'Create Account',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  child: Ink(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFF0543E4), // Starting color #0543E4
+                          Color(0xFF03257E), // Ending color #03257E
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Create Account',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ),
