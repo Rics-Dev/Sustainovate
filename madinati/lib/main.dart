@@ -32,31 +32,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-
-
-
-
-
-
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // Simulate splash screen delay
-  //   Future.delayed(const Duration(seconds: 2), () {
-  //     Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => const AuthScreen()),
-  //     );
-  //   });
-  // }
-
-
-
-
-
-  
+  @override
+  void initState() {
+    super.initState();
+    // Simulate splash screen delay
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const AuthScreen()),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +52,8 @@ class _SplashScreenState extends State<SplashScreen> {
           gradient: LinearGradient(
             end: Alignment.bottomRight,
             colors: [
-              Colors.transparent,
-              Color(0xCC358CC1), // #358CC1C9 with 80% transparency
+              Colors.white,
+              Color(0xFFABC3FF),
             ],
           ),
         ),
@@ -77,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               SvgPicture.asset(
                 'assets/logo.svg',
-                height: 100,
+                height: 60,
                 width: 100,
               ),
             ],
@@ -87,6 +73,9 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+
+
+
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
