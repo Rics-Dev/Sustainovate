@@ -2,9 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:madinati/structure/login.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() { 
+  runApp(DevicePreview( 
+    enabled: true, 
+    builder: (context) => const SignUpScreen(), 
+  )); 
 }
 
 class MyApp extends StatelessWidget {
