@@ -111,7 +111,7 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue.shade900,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                   ),
                   onPressed: isChecked ? () {} : null,

@@ -102,10 +102,8 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(height: 15),
               Center(
                 child: GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    "Don't have an account? Create an account",
-                  ),
+                  onTap: () => Navigator.pushReplacementNamed(context, '/signup'),
+                  child: Text("Don't have an account? Create an account"),
                 ),
               ),
               SizedBox(height: 10),

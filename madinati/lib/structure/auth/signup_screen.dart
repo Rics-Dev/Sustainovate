@@ -117,7 +117,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       borderRadius: BorderRadius.circular(25), // More rounded corners
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () => Navigator.pushNamed(context, '/verify'),
                   child: const Text(
                     'Continue',
                     style: TextStyle(
@@ -131,11 +131,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 15),
               Center(
                 child: GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    "Already have an account? Log in",
-                    style: TextStyle(color: Colors.blue),
-                  ),
+                  onTap: () => Navigator.pushReplacementNamed(context, '/signin'),
+                  child: Text("Already have an account? Log in"),
                 ),
               ),
               SizedBox(height: 10),
