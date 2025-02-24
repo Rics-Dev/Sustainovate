@@ -6,13 +6,14 @@ import 'package:madinati/structure/auth/signup_screen.dart';
 import 'package:madinati/structure/auth/validation.dart';
 import 'package:madinati/structure/navigation.dart';
 import 'package:madinati/structure/profile_screen.dart';
+import 'package:madinati/structure/route_navigation.dart';
 import 'package:madinati/structure/splash_screen.dart';
 import 'package:madinati/structure/home_screen.dart';
 
 void main() {
   runApp(DevicePreview(
     enabled: true,
-    builder: (context) => const MyApp(),
+    builder: (context) => const RouteNavigation(),
   ));
 }
 
