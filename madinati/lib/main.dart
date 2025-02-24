@@ -11,7 +11,7 @@ import 'package:madinati/structure/home_screen.dart';
 void main() {
   runApp(DevicePreview(
     enabled: true,
-    builder: (context) => const MyApp(),
+    builder: (context) => const Home(),
   ));
 }
 
