@@ -340,20 +340,27 @@ class QuickLinkItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: MediaQuery.of(context).size.width * 0.18,
-          width: MediaQuery.of(context).size.width * 0.18,
-          decoration: BoxDecoration(
-            border: Border.all(color: Color.fromRGBO(5, 67, 228, 1)),
-            borderRadius: BorderRadius.circular(11),
+    return GestureDetector(
+      onTap: () {
+        if (label == 'SOS\n') {
+          Navigator.pushNamed(context, '/sos_screen');
+        }
+      },
+      child: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.width * 0.18,
+            width: MediaQuery.of(context).size.width * 0.18,
+            decoration: BoxDecoration(
+              border: Border.all(color: Color.fromRGBO(5, 67, 228, 1)),
+              borderRadius: BorderRadius.circular(11),
+            ),
+            child: Icon(icon, size: 28, color: Color.fromRGBO(5, 67, 228, 1)),
           ),
-          child: Icon(icon, size: 28, color: Color.fromRGBO(5, 67, 228, 1)),
-        ),
-        SizedBox(height: 5),
-        Text(label, style: TextStyle(fontSize: 12)),
-      ],
+          SizedBox(height: 5),
+          Text(label, style: TextStyle(fontSize: 12)),
+        ],
+      ),
     );
   }
 }

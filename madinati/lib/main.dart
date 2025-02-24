@@ -7,13 +7,14 @@ import 'package:madinati/structure/auth/validation.dart';
 import 'package:madinati/structure/navigation.dart';
 import 'package:madinati/structure/profile_screen.dart';
 import 'package:madinati/structure/route_navigation.dart';
+import 'package:madinati/structure/sos_screen.dart';
 import 'package:madinati/structure/splash_screen.dart';
 import 'package:madinati/structure/home_screen.dart';
 
 void main() {
   runApp(DevicePreview(
     enabled: true,
-    builder: (context) => const RouteNavigation(),
+    builder: (context) => const MyApp(),
   ));
 }
 
@@ -36,6 +37,8 @@ class MyApp extends StatelessWidget {
         '/verify': (context) => const PhoneVerificationScreen(),
         '/home': (context) => const Home(),
         '/navigation': (context) => const MainNavigation(),
+        '/route_navigation': (context) => const RouteNavigation(),
+        '/sos_screen': (context) => const SosScreen(),
       },
     );
   }
