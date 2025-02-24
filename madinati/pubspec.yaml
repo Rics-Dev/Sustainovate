@@ -43,6 +43,7 @@ dependencies:
   url_launcher: ^6.3.1
   flutter_map: ^8.0.0
   latlong2: ^0.9.1
+  flutter_launcher_icons: ^0.14.3
 
 dev_dependencies:
   flutter_test:
@@ -59,12 +60,24 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/appicon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+
 flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -88,3 +101,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
