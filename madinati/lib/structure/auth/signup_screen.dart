@@ -130,7 +130,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 15),
               Center(
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () => Navigator.pushReplacementNamed(context, '/signin'),
                   child: Text(
                     "Already have an account? Log in",
                     style: TextStyle(color: Colors.blue),

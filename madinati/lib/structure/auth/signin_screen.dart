@@ -73,7 +73,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     elevation: 0,
                   ),
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) =>Home()));
+                     Navigator.pushReplacementNamed(context, '/navigation');
                   },
                   child: Ink(
                     decoration: BoxDecoration(
