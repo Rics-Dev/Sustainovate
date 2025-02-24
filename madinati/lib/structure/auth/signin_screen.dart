@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:madinati/structure/home_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  String? firstName, lastName, email, phoneNumber, password;
-  String? selectedCountryCode = '+213';
-  List<String> countryCodes = ['+213', '+1', '+44', '+33'];
+class _SignInScreenState extends State<SignInScreen> {
+  String? email, password;
 
   @override
   Widget build(BuildContext context) {
@@ -28,79 +27,38 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 60),
               Center(child: SvgPicture.asset('assets/logo.svg', height: 30)),
               SizedBox(height: 30),
-              Text(
-                'Create Your \nAccount!',
-                style: TextStyle(
-                  fontFamily: "Geom",
-                  fontSize: 28,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.blue.shade900,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                "Enter Your Personal Information",
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontFamily: "Urbanist",
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(height: 25),
-              buildTextField('First Name', 'Abdelkader'),
-              buildTextField('Last Name', 'Saidi'),
-              buildTextField('Email', 'abdou@gmail.com'),
-              SizedBox(height: 15),
-              Text(
-                'Phone Number',
-                style: TextStyle(color: Color.fromARGB(255, 182, 182, 182), fontSize: 14),
-              ),
-              Row(
-                children: [
-                  DropdownButton<String>(
-                    value: selectedCountryCode,
-                    underline: Container(),
-                    items:
-                        countryCodes.map((String code) {
-                          return DropdownMenuItem<String>(
-                            value: code,
-                            child: Text(code, style: TextStyle(fontSize: 16 , color: Color.fromARGB(255, 182, 182, 182))),
-                          );
-                        }).toList(),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        selectedCountryCode = newValue;
-                      });
-                    },
+              ShaderMask(
+                shaderCallback: (bounds) => LinearGradient(
+                  colors: [Color(0xFF0543E4), Color(0xFF03257E)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ).createShader(bounds),
+                child: Text(
+                  "Let's \nGet Started!",
+                  style: TextStyle(
+                    fontFamily: "Geom",
+                    fontSize: 38,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.white, // This color is just a placeholder
                   ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: TextField(
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        hintText: '0000000000',
-                        hintStyle: TextStyle(
-                          color: Color.fromARGB(255, 182, 182, 182),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                        ),
-                      ),
+                ),
+              ) ,
+              SizedBox(height: 30),
+              buildTextField('Email', 'Enter your email'),
+              buildPasswordField('Password', '****************'),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Forgot your Password?',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      decoration: TextDecoration.underline,
                     ),
                   ),
-                ],
-              ),
-              SizedBox(height: 20),
-              buildPasswordField('Password', '****************'),
-              SizedBox(height: 10),
-              Text(
-                "Your password should be at least 8 characters long and include a mix of uppercase letters, lowercase letters, numbers, and special characters.",
-                style: TextStyle(color: Colors.grey, fontSize: 12),
+                ),
               ),
               SizedBox(height: 30),
               SizedBox(
@@ -108,18 +66,38 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue.shade900,
+                    padding: EdgeInsets.zero, // Remove default padding for gradient
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(25),
                     ),
+                    elevation: 0,
                   ),
-                  onPressed: () {},
-                  child: Text(
-                    'Continue',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  onPressed: () {
+                    Navigator.push(context,MaterialPageRoute(builder: (context) =>Home()));
+                  },
+                  child: Ink(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFF0543E4), // Starting color #0543E4
+                          Color(0xFF03257E), // Ending color #03257E
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'LOG IN',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                          letterSpacing: 1.0,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -127,9 +105,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(height: 15),
               Center(
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () => Navigator.pushReplacementNamed(context, '/signup'),
                   child: Text(
-                    "Already have an account? Log in",
+                    "Don't have an account? Create an account",
                     style: TextStyle(color: Colors.blue),
                   ),
                 ),
@@ -143,7 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                   ),
                   onPressed: () {},
@@ -153,7 +131,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       SvgPicture.asset('assets/google.svg', height: 20),
                       SizedBox(width: 10),
                       Text(
-                        'Sign up with Google',
+                        'Log in with Google',
                         style: TextStyle(fontSize: 16),
                       ),
                     ],

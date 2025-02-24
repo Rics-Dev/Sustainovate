@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:madinati/structure/home_screen.dart';
 import 'package:pinput/pinput.dart';
 
 class PhoneVerificationScreen extends StatefulWidget {
@@ -114,7 +115,9 @@ class _PhoneVerificationScreenState extends State<PhoneVerificationScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: isChecked ? () {} : null,
+                  onPressed: isChecked ? () {
+                    Navigator.push(context,MaterialPageRoute(builder: (context) =>Home()));
+                  } : null,
                   child: Text(
                     'Create Account',
                     style: TextStyle(
